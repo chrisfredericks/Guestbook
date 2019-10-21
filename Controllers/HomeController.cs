@@ -10,20 +10,19 @@ namespace guestbook.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
+        public IActionResult Index() {
+            // first visit to app - construct model and pass to view
+            GuestbookManager guestbookManager = new GuestbookManager();
+            guestbookManager.setupMe();
+            return View(guestbookManager);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
+        public IActionResult AddEntry(GuestbookManager guestbookManager) {
+            return View(guestbookManager);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        public IActionResult AddSubmit(GuestbookManager guestbookManager, string fName, string lName, string ent) {
+            return View(guestbookManager);
         }
     }
 }

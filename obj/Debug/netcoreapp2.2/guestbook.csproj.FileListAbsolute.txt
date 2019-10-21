@@ -15,7 +15,6 @@ C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\guestbook.TagHelpers.inp
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\guestbook.TagHelpers.output.cache
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\guestbook.RazorCoreGenerate.cache
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
@@ -28,3 +27,4 @@ C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\guestbook.Views.pdb
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\guestbook.dll
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\guestbook.pdb
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\guestbook.csproj.CopyComplete
+C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\Razor\Views\Home\AddEntry.g.cshtml.cs

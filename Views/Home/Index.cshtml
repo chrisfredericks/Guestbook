@@ -1,4 +1,6 @@
-﻿@{
+﻿@model guestbook.Models.GuestbookManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,3 +8,95 @@
     <h1 class="display-4">Guestbook App</h1>
     <p></p>
 </div>
+
+
+<div class="row my-3">
+    <div class="col">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+            <label class="custom-control-label" for="defaultUnchecked">Add Entry</label>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col well">
+
+        <form method="post">
+
+            <div class="form-group">
+                <label for="txtFirstName">First Name:</label>
+                <input id="txtFirstName" name="firstName" type="text" class="form-control" maxlength="100" />
+            </div>
+            <div class="form-group">
+                <label for="txtLastName">Last Name:</label>
+                <input id="txtLastName" name="lastName" type="text" class="form-control" maxlength="100" />
+            </div>
+            <div class="form-group">
+                <label for="txtEntry">Entry:</label>
+                <textarea id="txtEntry" name="entry" class="form-control" rows="5" columns="50" maxlength="300"></textarea>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" asp-controller="Home" asp-action="AddSubmit">Add Entry</button>
+                <button type="submit" class="btn btn-success" asp-controller="Home" asp-action="Index">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Entry Date</th>
+                    <th style="border-right: none;">Entry</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- challenge solution -->
+                @if (Model.count == 0) {
+                    <tr><td colspan="3">No courses in database...</td></tr>
+                } else {
+                    foreach (var item in Model.entries) {
+                        <tr style="border-bottom: 15px solid white; border-top: 10px solid white">
+                            <td class="table-warning" style="min-width: 110px">@item.firstName</td>
+                            <td class="table-warning" style="min-width: 110px">@item.lastName</td>
+                            <td class="table-success" style="min-width: 200px">@item.dateOfEntry</td>
+                            <td class="table-primary" style="border-right: none">@item.entry</td>
+                            <td class="table-primary" style="min-width: 140px;">
+                                <a onclick="topFunction()" 
+                                        id="topButton" 
+                                        class="btn btn-warning">
+                                        Back to Top
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12"><h4>Total Entries: @Model.count</h4></div>
+</div>
+
+<script type="text/javascript">
+    //Get the button:
+    mybutton = document.getElementById("topButton");
+
+
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+</script>
