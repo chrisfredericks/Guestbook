@@ -27,4 +27,3 @@ C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\guestbook.Views.pdb
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\guestbook.dll
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\guestbook.pdb
 C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\guestbook.csproj.CopyComplete
-C:\Users\Asus\Desktop\guestbook\obj\Debug\netcoreapp2.2\Razor\Views\Home\AddEntry.g.cshtml.cs

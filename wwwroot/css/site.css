@@ -17,11 +17,6 @@ table th{
   border-collapse: collapse;
 }
 
-/* table td{
-  border-right:5px solid white;
-  border-collapse: collapse;
-} */
-
 .table .thead-dark th {
  
   color: white;
@@ -30,6 +25,10 @@ table th{
  
   border-color: white;
  
+}
+
+div#entryForm {
+  display: none;
 }
 
 a.navbar-brand {
