@@ -17,12 +17,11 @@ namespace guestbook.Controllers
             return View(guestbookManager);
         }
 
-        public IActionResult AddEntry(GuestbookManager guestbookManager) {
-            return View(guestbookManager);
-        }
-
-        public IActionResult AddSubmit(GuestbookManager guestbookManager, string fName, string lName, string ent) {
-            return View(guestbookManager);
+        [HttpPost]
+        public IActionResult AddSubmit(GuestbookManager guestbookManager, string firstName, string lastName, string entry) {
+            guestbookManager.addEntry(firstName, lastName, entry);
+            guestbookManager.setupMe();
+            return View("Index", guestbookManager);
         }
     }
 }

@@ -88,29 +88,26 @@ namespace guestbook.Models {
 
         // }
 
-        // public void addGrade(string courseName, string courseDescription, string grade, string comments) {
-        //     try {
-        //         dbConnection.Open();
-        //         // dbCommand.CommandText ="INSERT INTO tblGrades (categoryID,courseName,description,grade,comments) " +
-        //         //                         "VALUES (" + categoryID + ",'" + courseName + "','" + courseDescription + "'," + 
-        //         //                         grade +",'" + comments + "')";   
-        //         dbCommand.Parameters.Clear();
-        //         dbCommand.CommandText ="INSERT INTO tblGrades (categoryID,courseName,description,grade,comments) " +
-        //                                 "VALUES (?categoryID,?courseName,?courseDescription,?grade,?comments)";
-        //         dbCommand.Parameters.AddWithValue("?categoryID", categoryID);                
-        //         dbCommand.Parameters.AddWithValue("?courseName", courseName);                
-        //         dbCommand.Parameters.AddWithValue("?courseDescription", courseDescription);
-        //         dbCommand.Parameters.AddWithValue("?grade", grade);                
-        //         dbCommand.Parameters.AddWithValue("?comments", comments);                
-        //         dbCommand.ExecuteNonQuery(); 
+        public void addEntry(string firstName, string lastName, string entry) {
+            try {
+                DateTime dateOfEntry = DateTime.Now;
+                dbConnection.Open();   
+                dbCommand.Parameters.Clear();
+                dbCommand.CommandText ="INSERT INTO tblguestbook (firstName,lastName,dateOfEntry,entry) " +
+                                        "VALUES (?firstName,?lastName,?dateOfEntry,?entry)";
+                dbCommand.Parameters.AddWithValue("?firstName", firstName);                
+                dbCommand.Parameters.AddWithValue("?lastName", lastName);                
+                dbCommand.Parameters.AddWithValue("?dateOfEntry", dateOfEntry);
+                dbCommand.Parameters.AddWithValue("?entry", entry);                
+                dbCommand.ExecuteNonQuery(); 
 
-        //      } catch (Exception e) {
-        //         Console.WriteLine("\n>>> An error has occured with get Grades");
-        //         Console.WriteLine("\n>>> " + e.Message);
-        //     } finally {
-        //         dbConnection.Close();
-        //     }       
-        // }
+            } catch (Exception e) {
+            Console.WriteLine("\n>>> An error has occured with adding Entry");
+                Console.WriteLine("\n>>> " + e.Message);
+            } finally {
+                dbConnection.Close();
+            }       
+        }
 
         // public Category getCategoryName() {
         //     try {
