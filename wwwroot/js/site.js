@@ -1,8 +1,6 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-
-
   $(document).ready(function () {
     $('#addEntryCheck').change(function(){
       if($(this).prop("checked")) {
@@ -11,6 +9,16 @@
         $('#entryForm').hide();
       }
     });
+
+    if($('#addEntryCheck').prop("checked")) {
+      $('#entryForm').show();
+    } else {
+      $('#entryForm').hide();
+    }
+
+    setTimeout(function(){
+      $('#test').show();
+    }, 100);
     
     $("#txtEntry").charcount({
       errFontColor:'red',

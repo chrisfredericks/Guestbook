@@ -43,52 +43,20 @@ namespace guestbook.Models {
             }
         }
 
-        // public List<SelectListItem> categoryList {
-        //     get {
-        //         return _categoryList;
-        //     }
-        // }
+        public bool addEntryCheck {get; set;} = false;
 
         // ------------------------------------------------------- public methods
         public void setupMe() {
-            // // get category list data
-            // getCategoryList();
             // build guestbook data table
             getGuestbookData();
         }
 
-        // public void getChosenGrade(string gradeID) {
-            
-        //     try {
-        //         dbConnection.Open();
-        //         dbCommand.Parameters.Clear();
-        //         dbCommand.CommandText = "SELECT * FROM tblGrades WHERE gradeID = ?gradeID";
-        //         dbCommand.Parameters.AddWithValue("?gradeID", gradeID);
-        //         dbReader = dbCommand.ExecuteReader();
-        //         while (dbReader.Read()) {
-
-        //             Grade grade = new Grade();
-        //             grade.gradeID = Convert.ToInt32(dbReader["gradeID"]);
-        //             grade.categoryID = Convert.ToInt32(dbReader["categoryID"]);
-        //             grade.courseName = dbReader["courseName"].ToString();
-        //             grade.grade = dbReader["grade"].ToString();
-        //             grade.comments = dbReader["comments"].ToString();
-        //             grade.description = dbReader["description"].ToString();
-        //             // add object to list
-        //             _guestbookEntry.Add(grade);
-        //         }
-        //         dbReader.Close();
-                
-        //     } catch (Exception e) {
-        //         Console.WriteLine("\n>>> An error has occured with get Grades");
-        //         Console.WriteLine("\n>>> " + e.Message);
-        //     } finally {
-        //         dbConnection.Close();
-        //     }
-
-        // }
-
         public void addEntry(string firstName, string lastName, string entry) {
+            if (((firstName == null) || (lastName == null)) || ((firstName == null) && (lastName == null))){
+                firstName = "Anonymous";
+                lastName = "";
+            }
+
             try {
                 DateTime dateOfEntry = DateTime.Now;
                 dbConnection.Open();   
@@ -108,58 +76,6 @@ namespace guestbook.Models {
                 dbConnection.Close();
             }       
         }
-
-        // public Category getCategoryName() {
-        //     try {
-        //         dbConnection.Open();
-        //         dbCommand.Parameters.Clear();
-        //         Console.WriteLine("\nCategory ID >>> " + categoryID);
-
-        //         dbCommand.CommandText = "SELECT * FROM tblCategory WHERE categoryID = ?categoryID";
-        //         dbCommand.Parameters.AddWithValue("?categoryID", categoryID);                
-        //         dbReader = dbCommand.ExecuteReader();
-        //         dbReader.Read();
-        //         _catName.categoryID = Convert.ToInt32(dbReader["categoryID"]);
-        //         _catName.categoryName = dbReader["categoryName"].ToString();
-        //         dbConnection.Close();
-        //         Console.WriteLine("\nCategory ID >>> " + categoryName);
-
-        //     } catch (Exception e) {
-        //         Console.WriteLine("\n>>> An error has occured with get Grades");
-        //         Console.WriteLine("\n>>> " + e.Message);
-        //     } finally {
-        //         dbConnection.Close();
-        //     }
-        //     return _catName;
-        // }
-        // ------------------------------------------------------- private methods
-        
-        // private void getCategoryList() {
-        //     try {
-        //         dbConnection.Open();
-        //         dbCommand.CommandText = "SELECT * FROM tblCategory";
-        //         dbReader = dbCommand.ExecuteReader();
-
-        //         // populate the list that will populate the dropdown
-        //         while (dbReader.Read()) {
-        //             SelectListItem item = new SelectListItem();
-        //             item.Text = Convert.ToString(dbReader["categoryName"]);
-        //             item.Value = Convert.ToString(dbReader["categoryID"]);
-        //             _categoryList.Add(item);
-        //         }
-        //         dbReader.Close();
-
-        //         // ***************** Challenge *****************
-        //         if (categoryID == 0) {categoryID = Convert.ToInt32(_categoryList[0].Value);}
-        //         // ***************** Challenge *****************
-
-        //     } catch (Exception e) {
-        //         Console.WriteLine("\n>>> An error has occured with get Grades");
-        //         Console.WriteLine("\n>>> " + e.Message);
-        //     } finally {
-        //         dbConnection.Close();
-        //     }
-        // }
 
         private void getGuestbookData() {
             try {
