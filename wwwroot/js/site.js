@@ -2,6 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
   $(document).ready(function () {
+    // show or hide entry form every time the button is checked or unchecked
     $('#addEntryCheck').change(function(){
       if($(this).prop("checked")) {
         $('#entryForm').show();
@@ -10,16 +11,17 @@
       }
     });
 
+    // display form after postback
     if($('#addEntryCheck').prop("checked")) {
       $('#entryForm').show();
-    } else {
-      $('#entryForm').hide();
     }
 
+    // display table after short delay
     setTimeout(function(){
-      $('#test').show();
+      $('#entryTable').show();
     }, 100);
-    
+
+    // character counter
     $("#txtEntry").charcount({
       errFontColor:'red',
       okFontColor:'green',

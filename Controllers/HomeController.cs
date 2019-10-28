@@ -13,6 +13,10 @@ namespace guestbook.Controllers
         public IActionResult Index() {
             // first visit to app - construct model and pass to view
             GuestbookManager guestbookManager = new GuestbookManager();
+            // keep the box checked after postback
+            if (Convert.ToString(TempData["addEntryCheck"]) == "1") {
+                guestbookManager.addEntryCheck = true;
+            }
             guestbookManager.setupMe();
             return View(guestbookManager);  
         }
@@ -20,9 +24,11 @@ namespace guestbook.Controllers
         [HttpPost]
         public IActionResult AddSubmit(GuestbookManager guestbookManager, string firstName, string lastName, string entry) {
             guestbookManager.addEntry(firstName, lastName, entry);
-            guestbookManager.addEntryCheck = true;
+
+
             guestbookManager.setupMe();
-            return View("Index", guestbookManager);
+            TempData["addEntryCheck"] = "1";
+            return RedirectToAction("Index");
         }
     }
 }

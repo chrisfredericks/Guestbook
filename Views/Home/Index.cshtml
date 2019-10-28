@@ -10,14 +10,14 @@
 
 <div class="row my-3">
     <div class="col">
-        <div class="custom-control custom-switch">
-            <input id="addEntryCheck" asp-for="addEntryCheck" type="checkbox" value="@Model.addEntryCheck" />
-            @Html.Label("Add Entry")
+        <div class="customer-control custom-switch">
+            <input id="addEntryCheck" class="custom-control-input" asp-for="addEntryCheck" type="checkbox" value="@Model.addEntryCheck" />
+            <label class="custom-control-label" for="addEntryCheck">Add Entry</label>
         </div>
     </div>
 </div>
 
-<div id="entryForm" class="row">
+<div id="entryForm" class="row" style="display: none">
     <div class="col well">
         <form method="post">
 
@@ -34,15 +34,15 @@
                 <textarea id="txtEntry" data-charcount="true" data-maxlen="300" name="entry" class="form-control" rows="5" columns="50" maxlength="300"></textarea>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-success" asp-controller="Home" asp-action="AddSubmit">Save Entry</button>
-                <button type="submit" class="btn btn-success" asp-controller="Home" asp-action="Index">Cancel</button>
+                <button type="submit" class="btn btn-warning" asp-controller="Home" asp-action="AddSubmit">Save Entry</button>
+                <button type="submit" class="btn btn-warning" asp-controller="Home" asp-action="Index">Cancel</button>
             </div>
 
         </form>        
     </div>
 </div>
 
-<div id="test" class="row" style="display: none">
+<div id="entryTable" class="row" style="display: none">
     <div class="col">
         <table class="table">
             <thead class="thead-dark">
@@ -50,8 +50,8 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Entry Date</th>
-                    <th style="border-right: none; border-top-right-radius: 0px">Entry</th>
-                    <th style="border-top-left-radius: 0px"></th>
+                    <th style="border-right: none; border-top-right-radius: 0px; border-bottom-right-radius: 0px">Entry</th>
+                    <th style="border-top-left-radius: 0px; border-bottom-left-radius: 0px; border-right:none"></th>
                 </tr>
             </thead>
             <tbody>
@@ -59,16 +59,16 @@
                     <tr><td colspan="3">No entries in the database...</td></tr>
                 } else {
                     foreach (var item in Model.entries) {
-                        <tr style="border-bottom: 20px solid white; border-top: 15px solid white">
-                            <td class="table-warning" style="min-width: 110px">@item.firstName</td>
+                        <tr>
+                            <td class="table-warning" style="min-width: 10px">@item.firstName</td>
                             <td class="table-warning" style="min-width: 110px">@item.lastName</td>
-                            <td class="table-success" style="min-width: 200px">@item.dateOfEntry</td>
-                            <td class="table-primary" style="border-right: none">@item.entry</td>
-                            <td class="table-primary" style="min-width: 140px;">
+                            <td class="table-success" style="min-width: 115px">@item.dateOfEntry</td>
+                            <td id="test" class="table-primary" style="border-right: none; min-width: 300px">@item.entry</td>
+                            <td class="table-primary" style="min-width: 25px;">
                                 <a onclick="topFunction()" 
                                         id="topButton" 
                                         class="btn btn-warning">
-                                        Back to Top
+                                        <i class="fas fa-arrow-up"></i>
                                 </a>
                             </td>
                         </tr>

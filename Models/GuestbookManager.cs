@@ -17,7 +17,6 @@ namespace guestbook.Models {
         // property variables
         private int _count;
         private List<GuestbookEntry> _guestbookEntry;
-        // private List<SelectListItem> _categoryList;
 
 
         public GuestbookManager() {
@@ -52,6 +51,7 @@ namespace guestbook.Models {
         }
 
         public void addEntry(string firstName, string lastName, string entry) {
+            // Change name to Anonymous if no names
             if (((firstName == null) || (lastName == null)) || ((firstName == null) && (lastName == null))){
                 firstName = "Anonymous";
                 lastName = "";
@@ -77,10 +77,12 @@ namespace guestbook.Models {
             }       
         }
 
+        // ------------------------------------------------------- private methods
         private void getGuestbookData() {
             try {
                 dbConnection.Open();
-                dbCommand.CommandText = "SELECT * FROM tblguestbook";
+                // get data from table in descending order by date
+                dbCommand.CommandText = "SELECT * FROM tblguestbook ORDER BY dateOfEntry DESC";
                 dbReader = dbCommand.ExecuteReader();
                 while (dbReader.Read()) {
 
@@ -93,8 +95,6 @@ namespace guestbook.Models {
                     _guestbookEntry.Add(entry);
                 }
                 dbReader.Close();
-                // sort entries so newest appear at the top
-                _guestbookEntry = _guestbookEntry.OrderByDescending(o=>o.dateOfEntry).ToList();
                 // accessing single value from db
                 dbCommand.CommandText = "SELECT Count(*) FROM tblguestbook";                
                 _count = Convert.ToInt32(dbCommand.ExecuteScalar());
