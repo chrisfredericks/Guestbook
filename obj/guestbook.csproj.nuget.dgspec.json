@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\Desktop\\guestbook\\guestbook.csproj": {}
+    "C:\\Users\\cfrederi\\Desktop\\guestbook\\guestbook.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\Desktop\\guestbook\\guestbook.csproj": {
+    "C:\\Users\\cfrederi\\Desktop\\guestbook\\guestbook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\Desktop\\guestbook\\guestbook.csproj",
+        "projectUniqueName": "C:\\Users\\cfrederi\\Desktop\\guestbook\\guestbook.csproj",
         "projectName": "guestbook",
-        "projectPath": "C:\\Users\\Asus\\Desktop\\guestbook\\guestbook.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\Desktop\\guestbook\\obj\\",
+        "projectPath": "C:\\Users\\cfrederi\\Desktop\\guestbook\\guestbook.csproj",
+        "packagesPath": "C:\\Users\\cfrederi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cfrederi\\Desktop\\guestbook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\cfrederi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
